@@ -11,7 +11,7 @@ pokeApi.pokemonColor = {
     poison : "#A33EA1",
     ground : "#E2BF65",
     flying : "#A98FF3",
-    osychic : "#F95587",
+    psychic : "#F95587",
     bug : "#A6B91A",
     rock : "#B6A136",
     ghost : "#735797",
@@ -33,7 +33,7 @@ pokeApi.convertPokemonJsonToHtml = (pokeInfo) => {
     return `
         <li class="pokeCard" style="background-color:${pokeApi.pokemonColor[type.name]}">
         <div class="pokemonContrast">
-            <img src="${pokeInfo.sprites.other.dream_world.front_default}" class="pokeImagem"></img>
+            <img src="${pokeInfo.sprites.other.home.front_default}" class="pokeImagem"></img>
         </div>
             <span class="pokeId">#${pokeInfo.id.toString().padStart(3, '0')}</span>
             <p class="pokeName">${pokeInfo.name}</p>
