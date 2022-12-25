@@ -19,6 +19,10 @@ ul{
     padding:0;
 }
 
+.button-area{
+    margin-left:35px;
+}
+
 .pokeCard{
   border-radius: 20px;
   box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
@@ -100,4 +104,16 @@ ul{
     font-weight: 600;
     text-transform: capitalize;
     font-size: 14px;
+}
+
+@media screen and (max-width:614px) {
+    #pokeList{
+        justify-content: center;
+    }
+
+    .pokeCard{
+        flex-basis:300px;
+    }
+
+    
 }
