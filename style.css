@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+#pokeList{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
+}
+
+ul{
+    list-style:none;
+}
+
+.pokeImagem{
+    width:110px;
+    margin:auto;
+    padding:0;
+}
+
+.pokeCard{
+  border-radius: 20px;
+  box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+  margin: 8px;
+  padding: 20px;
+  width:200px;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  transition: transform 0.5s;
+  --webkit-backface-visibility: hidden;
+}
+
+.pokeName{
+    font-weight:700;
+    font-size:22px;
+    text-transform: capitalize;
+}
+
+#leftButton{
+    background-color:#ee1515; 
+    color:white;
+    margin-right:10px;
+}
+
+#rightButton{
+    background-color:#222224;
+    color:white;
+ 
+}
+
+.buttons{
+    padding:8px 22px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border:0;
+    border-radius:5px;
+    font-weight: 600;
+    transition: .2s all ease;
+}
+
+#leftButton:active{
+    background-color:#f0f0f0;
+    color:#ee1515;
+    border:1px solid #ee1515;
+}
+
+#rightButton:active{
+    border:1px solid #222224;
+    background-color:#f0f0f0;
+    color:#222224
+}
+
+.pokemonContrast{
+    width:200px;
+    height:200px;
+    background-color:rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:50%;
+}
+
+.pokeId{
+    margin-top:15px;
+    margin-bottom:-15px;
+    background-color:#d3d3d3;
+    border-radius:20px;
+    display:block;
+    padding:6px 8px;
+    font-weight: 600;
+}
+
+.pokeType{
+    background-color:#d3d3d3;
+    padding:6px 8px;
+    border-radius:20px;
+    font-weight: 600;
+    text-transform: capitalize;
+    font-size: 14px;
+}
