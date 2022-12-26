@@ -14,6 +14,12 @@ ul{
     list-style:none;
 }
 
+a{
+    text-decoration: none;
+    color:black;
+    text-align: center;
+}
+
 .pokeImagem{
     width:110px;
     margin:auto;
@@ -90,13 +96,13 @@ ul{
 }
 
 .pokeId{
-    margin-top:15px;
-    margin-bottom:-15px;
     background-color:#d3d3d3;
     border-radius:20px;
     display:block;
     padding:6px 8px;
     font-weight: 600;
+    width:43px;
+    margin:15px auto -15px;
 }
 
 .pokeType{

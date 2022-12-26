@@ -28,9 +28,9 @@ pokeApi.getPokemonDetails = (pokemon) => {
         .then(pokeApi.convertPokemonJsonToHtml)
 }
 
-pokeApi.verifyTypeAndInsert = (type) =>{
+pokeApi.verifyTypeAndInsert = (type, className) =>{
     if(type !== undefined){
-      return `<span class="pokeType">${type.type.name}</span>`
+      return `<span class="${className}">${type.type.name}</span>`
     } else {
         return `<span></span>`
     }
@@ -41,16 +41,17 @@ pokeApi.convertPokemonJsonToHtml = (pokeInfo) => {
 
     return `
         <li class="pokeCard" style="background-color:${pokeApi.pokemonColor[type1.type.name]}">
-        <div class="pokemonContrast">
-            <img src="${pokeInfo.sprites.other.home.front_default}" class="pokeImagem"></img>
-        </div>
-            <span class="pokeId">#${pokeInfo.id.toString().padStart(3, '0')}</span>
-            <p class="pokeName">${pokeInfo.name}</p>
-            <div class="pokeTypeArea">
-                <span class="pokeType">${type1.type.name}</span>
-                ${pokeApi.verifyTypeAndInsert(type2)}
-            </div>
-           
+            <a href="../pages/cardPokemon.html?id=${pokeInfo.id}">
+                <div class="pokemonContrast">
+                    <img src="${pokeInfo.sprites.other.home.front_default}" class="pokeImagem"></img>
+                </div>
+                    <span class="pokeId">#${pokeInfo.id.toString().padStart(3, '0')}</span>
+                    <p class="pokeName">${pokeInfo.name}</p>
+                    <div class="pokeTypeArea">
+                        <span class="pokeType">${type1.type.name}</span>
+                        ${pokeApi.verifyTypeAndInsert(type2, "pokeType")}
+                    </div>
+            </a>
         </li>
     `
 }
