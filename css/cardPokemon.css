@@ -67,8 +67,12 @@ body{
 @media screen and (max-width:614px) {
     .wave{
         position:fixed;
-        bottom:-5px;
+        bottom:-30px;
         left:0;
         width:100%;
+    }
+
+    .experience, .height, .weight{
+        width:80vw;
     }
 }
