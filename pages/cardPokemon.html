@@ -10,24 +10,14 @@
 </head>
 
 <body>
-    <div class="informations"></div>
-
     <script src="../js/pokeApi.js"></script>
     <script defer>
-        const info = document.querySelector(".informations")
         
         // Pega ID do parâmetro
         const urlParams = new URLSearchParams(window.location.search);
         const pokeId = urlParams.get("id")
 
         const pokeUrl = id => `https://pokeapi.co/api/v2/pokemon/${id}`
-
-
-        function getDetais(pokemons) {
-            return fetch(pokemons.url)
-                   .then(response => response.json())
-                   .then(convertJsonToCard)
-        }
 
         function insertIntoHtml(pokemon){
             document.body.innerHTML = pokemon

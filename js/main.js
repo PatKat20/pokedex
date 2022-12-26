@@ -18,13 +18,13 @@ function loadPokemons(offset = 0, limit = 20) {
 
 // Eventos
 rightButton.addEventListener("click", _ => {
-    actuallyOffset = actuallyOffset >= 110 ? 110 : actuallyOffset + limit;
-    loadPokemons(actuallyOffset, limit)
+    actuallyOffset += limit;
+    loadPokemons(actuallyOffset)
 })
 
 leftButton.addEventListener("click", _ => {
     actuallyOffset = actuallyOffset == 0 ? 0 : actuallyOffset - limit;
-    loadPokemons(actuallyOffset, limit)
+    loadPokemons(actuallyOffset)
 })
 
-loadPokemons(actuallyOffset, limit)
+loadPokemons(actuallyOffset)
