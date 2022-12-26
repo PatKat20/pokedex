@@ -1,4 +1,5 @@
 const pokeApi = {}
+pokeApi.url = (offset = 0, limit = 20) => `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
 
 pokeApi.pokemonColor = {
     normal: "#A8A77A",
@@ -43,8 +44,8 @@ pokeApi.convertPokemonJsonToHtml = (pokeInfo) => {
 
 }
 
-pokeApi.getPokemons = (url) => {
-    return fetch(url)
+pokeApi.getPokemons = (offset, limit) => {
+    return fetch(pokeApi.url(offset, limit))
         .then(response => response.json())
         .then(jsonBody => jsonBody.results)
         .then(pokemonList => pokemonList.map(pokeApi.getPokemonDetails))
