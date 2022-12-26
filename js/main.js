@@ -1,5 +1,7 @@
 // Variáveis e Seletores
 let actuallyOffset = 0
+let limit = 10;
+
 const rightButton = document.querySelector("#rightButton")
 const pokeTyepOpc = document.querySelector("#pokeTypeOpc")
 
@@ -16,13 +18,13 @@ function loadPokemons(offset = 0, limit = 20) {
 
 // Eventos
 rightButton.addEventListener("click", _ => {
-    actuallyOffset += 20;
-    loadPokemons(actuallyOffset)
+    actuallyOffset = actuallyOffset >= 110 ? 110 : actuallyOffset + limit;
+    loadPokemons(actuallyOffset, limit)
 })
 
 leftButton.addEventListener("click", _ => {
-    actuallyOffset = actuallyOffset == 0 ? 0 : actuallyOffset - 20;
-    loadPokemons(actuallyOffset)
+    actuallyOffset = actuallyOffset == 0 ? 0 : actuallyOffset - limit;
+    loadPokemons(actuallyOffset, limit)
 })
 
-loadPokemons()
+loadPokemons(actuallyOffset, limit)
