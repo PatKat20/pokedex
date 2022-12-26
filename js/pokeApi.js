@@ -21,10 +21,6 @@ pokeApi.pokemonColor = {
     fairy: "#D685AD",
 }
 
-const btnEnviar = document.querySelector(".btn-enviar")
-
-
-
 pokeApi.getPokemonDetails = (pokemon) => {
     return fetch(pokemon.url)
         .then(response => response.json())
