@@ -28,6 +28,14 @@ pokeApi.getPokemonDetails = (pokemon) => {
         .then(pokeApi.convertPokemonJsonToHtml)
 }
 
+pokeApi.verifyTypeAndInsert = (type) =>{
+    if(type !== undefined){
+      return `<span class="pokeType">${type.type.name}</span>`
+    } else {
+        return `<span></span>`
+    }
+}
+
 pokeApi.convertPokemonJsonToHtml = (pokeInfo) => {
     let [type1, type2] = pokeInfo.types
 
@@ -40,7 +48,7 @@ pokeApi.convertPokemonJsonToHtml = (pokeInfo) => {
             <p class="pokeName">${pokeInfo.name}</p>
             <div class="pokeTypeArea">
                 <span class="pokeType">${type1.type.name}</span>
-                <span class="pokeType">${type2 === undefined ? "-" : type2.type.name}</span>
+                ${pokeApi.verifyTypeAndInsert(type2)}
             </div>
            
         </li>

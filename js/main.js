@@ -1,6 +1,7 @@
 // Variáveis e Seletores
 let actuallyOffset = 0
 const rightButton = document.querySelector("#rightButton")
+const pokeTyepOpc = document.querySelector("#pokeTypeOpc")
 
 // Funções
 

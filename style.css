@@ -45,13 +45,13 @@ ul{
 }
 
 #leftButton{
-    background-color:#ee1515; 
+    background-color:#222224;
     color:white;
     margin-right:10px;
 }
 
 #rightButton{
-    background-color:#222224;
+    background-color:#ee1515; 
     color:white;
  
 }
@@ -67,16 +67,17 @@ ul{
 }
 
 #leftButton:active{
+    border:1px solid #222224;
+    background-color:#f0f0f0;
+    color:#222224;
+}
+
+#rightButton:active{
     background-color:#f0f0f0;
     color:#ee1515;
     border:1px solid #ee1515;
 }
 
-#rightButton:active{
-    border:1px solid #222224;
-    background-color:#f0f0f0;
-    color:#222224
-}
 
 .pokemonContrast{
     width:200px;
