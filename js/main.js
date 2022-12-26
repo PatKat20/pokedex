@@ -1,6 +1,6 @@
 // Variáveis e Seletores
 let actuallyOffset = 0
-let limit = 10;
+let limit = 20;
 
 const rightButton = document.querySelector("#rightButton")
 const pokeTyepOpc = document.querySelector("#pokeTypeOpc")

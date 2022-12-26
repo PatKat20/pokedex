@@ -37,14 +37,31 @@
             let [type1, type2] = pokeInfo.types
             let pokeImg = pokeInfo.sprites.other.dream_world.front_default
 
+            const iconInfo = pokeApi.pokemonIcons[type1.type.name]
+            const pokeColorInfo = pokeApi.pokemonColor[type1.type.name]
+    
             return `
-                <div style="background-color:${pokeApi.pokemonColor[type1.type.name]}" class="cardPokemon">
+                <div style="background-color:${pokeColorInfo}" class="cardPokemon">
                     <a href="../index.html" id="returnIcon">
                         <ion-icon name="return-down-back-outline" ></ion-icon>
                     </a>
+
                     <h2 id="pokeCardName">${pokeInfo.name}</h2>
-                    <span class="pokeTypeCard">${type1.type.name}</span>
-                    ${pokeApi.verifyTypeAndInsert(type2, "pokeTypeCard")}
+
+                    <div class="iconTypesArea">
+                        <img 
+                            src="${iconInfo.img}" 
+                            class="iconType" 
+                            style="background-color:${iconInfo.colorIcon}; box-shadow: 0 0 20px ${iconInfo.colorIcon}">
+                        </img>
+                        ${pokeApi.verifyTypeAndInsertImg(type2, "iconType")}
+                    </div>
+
+                    <div class="pokeTypeArea">
+                        <span class="pokeTypeCard">${type1.type.name}</span>
+                        ${pokeApi.verifyTypeAndInsert(type2, "pokeTypeCard")}
+                    </div>
+
                     <div class="pokeInfoArea">
                         <div class="experience">
                             <p>Experience</p>

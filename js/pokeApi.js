@@ -22,15 +22,127 @@ pokeApi.pokemonColor = {
     fairy: "#D685AD",
 }
 
+pokeApi.pokemonIcons = {
+    normal:{ 
+        img: "../icons/normal.svg",
+        colorIcon: "#A0A29F",
+    },
+
+    fire: {
+        img: "../icons/fire.svg",
+        colorIcon: "#FBA54C",
+    },
+
+    water:{
+        img: "../icons/water.svg",
+        colorIcon: "#539DDF",
+    } ,
+
+    electric:{
+       img: "../icons/electric.svg",
+       colorIcon: "#F2D94E",
+    },
+
+    grass:{
+        img: "../icons/grass.svg",
+        colorIcon: "#5FBD58",
+    },
+
+    ice:{
+        img: "../icons/ice.svg",
+        colorIcon: "#75D0C1",
+    },
+
+    fighting:{
+        img:"../icons/fighting.svg",
+        colorIcon: "#D3425F",
+    }, 
+
+    poison:{
+        img:"../icons/poison.svg",
+        colorIcon: "#B763CF",
+        
+    },
+
+    ground:{
+        img: "../icons/ground.svg",
+        colorIcon: "#DA7C4D",
+        
+    }, 
+
+    flying:{
+        img: "../icons/flying.svg",
+        colorIcon: "#A1BBEC",
+        
+    }, 
+
+    psychic:{
+        img: "../icons/psychic.svg",
+        colorIcon: "#FA8581",
+        
+    }, 
+
+    bug:{
+        img: "../icons/bug.svg",
+        colorIcon: "#92BC2C",
+        
+    }, 
+
+    rock:{
+        img: "../icons/rock.svg",
+        colorIcon: "#C9BB8A",
+        
+    }, 
+
+    ghost:{
+        img: "../icons/ghost.svg",
+        colorIcon: "#5F6DBC",
+    },
+
+    dragon:{
+        img:"../icons/dragon.svg",
+        colorIcon: "#0C69C8",
+    },
+
+    dark:{
+        img:"../icons/dark.svg",
+        colorIcon: "#595761",
+    },
+
+    steel:{
+        img:"../icons/steel.svg",
+        colorIcon: "#5695A3",
+    },
+
+    fairy:{
+        img:"../icons/fairy.svg",
+        colorIcon: "#EE90E6",
+    },
+
+}
+
 pokeApi.getPokemonDetails = (pokemon) => {
     return fetch(pokemon.url)
         .then(response => response.json())
         .then(pokeApi.convertPokemonJsonToHtml)
 }
 
-pokeApi.verifyTypeAndInsert = (type, className) =>{
-    if(type !== undefined){
-      return `<span class="${className}">${type.type.name}</span>`
+pokeApi.verifyTypeAndInsert = (type, className) => {
+    
+    if (type !== undefined) {
+        return `<span class="${className}">${type.type.name}</span>`
+    } else {
+        return `<span></span>`
+    }
+}
+
+pokeApi.verifyTypeAndInsertImg = (type, className) => {
+    if (type !== undefined) { 
+        const iconInfo = pokeApi.pokemonIcons[type.type.name]
+        return `<img class="${className}" 
+                    src="${iconInfo.img}" 
+                    style="background-color:${iconInfo.colorIcon}; box-shadow: 0 0 20px ${iconInfo.colorIcon}">
+                </img>`
     } else {
         return `<span></span>`
     }
@@ -38,9 +150,10 @@ pokeApi.verifyTypeAndInsert = (type, className) =>{
 
 pokeApi.convertPokemonJsonToHtml = (pokeInfo) => {
     let [type1, type2] = pokeInfo.types
+    const colorInfo = pokeApi.pokemonColor[type1.type.name]
 
     return `
-        <li class="pokeCard" style="background-color:${pokeApi.pokemonColor[type1.type.name]}">
+        <li class="pokeCard" style="background-color:${colorInfo}">
             <a href="https://patkat20.github.io/pokedex/pages/cardPokemon.html?id=${pokeInfo.id}">
                 <div class="pokemonContrast">
                     <img src="${pokeInfo.sprites.other.home.front_default}" class="pokeImagem"></img>
@@ -49,7 +162,7 @@ pokeApi.convertPokemonJsonToHtml = (pokeInfo) => {
                     <p class="pokeName">${pokeInfo.name}</p>
                     <div class="pokeTypeArea">
                         <span class="pokeType">${type1.type.name}</span>
-                        ${pokeApi.verifyTypeAndInsert(type2, "pokeType")}
+                        ${pokeApi.verifyTypeAndInsert(type2, "pokeType", "span")}
                     </div>
             </a>
         </li>
