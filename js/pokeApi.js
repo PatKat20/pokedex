@@ -29,19 +29,22 @@ pokeApi.getPokemonDetails = (pokemon) => {
 }
 
 pokeApi.convertPokemonJsonToHtml = (pokeInfo) => {
-    const [{ type }] = pokeInfo.types
-        
+    let [type1, type2] = pokeInfo.types
+
     return `
-        <li class="pokeCard" style="background-color:${pokeApi.pokemonColor[type.name]}">
+        <li class="pokeCard" style="background-color:${pokeApi.pokemonColor[type1.type.name]}">
         <div class="pokemonContrast">
             <img src="${pokeInfo.sprites.other.home.front_default}" class="pokeImagem"></img>
         </div>
             <span class="pokeId">#${pokeInfo.id.toString().padStart(3, '0')}</span>
             <p class="pokeName">${pokeInfo.name}</p>
-            <span class="pokeType">${type.name}</span>
+            <div class="pokeTypeArea">
+                <span class="pokeType">${type1.type.name}</span>
+                <span class="pokeType">${type2 === undefined ? "-" : type2.type.name}</span>
+            </div>
+           
         </li>
     `
-
 }
 
 pokeApi.getPokemons = (offset, limit) => {
