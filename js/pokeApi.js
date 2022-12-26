@@ -41,7 +41,7 @@ pokeApi.convertPokemonJsonToHtml = (pokeInfo) => {
 
     return `
         <li class="pokeCard" style="background-color:${pokeApi.pokemonColor[type1.type.name]}">
-            <a href="../cardPokemon.html?id=${pokeInfo.id}">
+            <a href="https://patkat20.github.io/pokedex/pages/cardPokemon.html?id=${pokeInfo.id}">
                 <div class="pokemonContrast">
                     <img src="${pokeInfo.sprites.other.home.front_default}" class="pokeImagem"></img>
                 </div>
