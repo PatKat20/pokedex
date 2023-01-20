@@ -156,7 +156,7 @@ pokeApi.convertPokemonJsonToHtml = (pokeInfo) => {
         <li class="pokeCard" style="background-color:${colorInfo}">
             <a href="https://katsuxd20.github.io/pokedex/pages/cardPokemon.html?id=${pokeInfo.id}">
                 <div class="pokemonContrast">
-                    <img src="${pokeInfo.sprites.other.home.front_default}" class="pokeImagem"></img>
+                    <img src="${pokeInfo.sprites.other.dream_world.front_default}" class="pokeImagem"></img>
                 </div>
                     <span class="pokeId">#${pokeInfo.id.toString().padStart(3, '0')}</span>
                     <p class="pokeName">${pokeInfo.name}</p>
